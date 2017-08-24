@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("rxjs/add/operator/switchMap");
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var hero_service_1 = require("./hero.service");
 var HeroDetailComponent = (function () {
-    function HeroDetailComponent(heroService, location) {
+    function HeroDetailComponent(heroService, location, route) {
         this.heroService = heroService;
         this.location = location;
+        this.route = route;
     }
     HeroDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -31,11 +33,13 @@ var HeroDetailComponent = (function () {
 }());
 HeroDetailComponent = __decorate([
     core_1.Component({
+        selector: 'detail/:id',
         templateUrl: './hero-detail.component.html',
         styleUrls: ['./hero-detail.component.css']
     }),
     __metadata("design:paramtypes", [hero_service_1.HeroService,
-        common_1.Location])
+        common_1.Location,
+        router_1.ActivatedRoute])
 ], HeroDetailComponent);
 exports.HeroDetailComponent = HeroDetailComponent;
 //# sourceMappingURL=hero-detail.component.js.map
